@@ -1,0 +1,87 @@
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-shadow: #777 2px 2px;
+}
+
+.location-search-input {
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 10px;
+  height: 75px;
+  font-size: 30px;
+  padding: 15px;
+  color: #555;
+  outline-style:none;
+}
+
+.address-search-container {
+  padding-top: 200px;
+  transition: padding-top 1s;
+
+  &.done {
+    padding-top: 10px;
+
+    .location-search-input {
+      border: none;
+      transition: font-size 0.25s;
+
+      &:focus {
+        border: 1px solid #333;
+        font-size: 50px;
+      }
+    }
+  }
+}
+
+.autocomplete-dropdown-container {
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 5px;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.icon-text {
+  margin-left: 10px;
+}
+
+.icon-text-left {
+  margin-right: 10px;
+}
+
+.card-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: .5rem;
+
+  @media only screen and (min-width: 992px) {
+    grid-template-columns: 1fr fit-content(1fr);
+  }
+}
+
+.official-card {
+  .official-profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
+  .official-name {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .office-name {
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+
+  address {
+    font-size: 0.75rem;
+  }
+}
