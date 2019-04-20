@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/whogoverns.me/static/media/default-photo.447bb7f2.jpg"
   },
   {
-    "revision": "6faabe36d08162af66d4a844ee65b640",
+    "revision": "69fb1033355af2dccc7435f7d36d29c7",
     "url": "/whogoverns.me/index.html"
   }
 ];
