@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/whogoverns.me/precache-manifest.a6aee653e58fc6bf4d489a0664e38c94.js"
+  "/whogoverns.me/precache-manifest.71ea9011d16464369138af3a5f8c23ca.js"
 );
 
 workbox.clientsClaim();

@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "d8b278a6f94f515c809d",
-    "url": "/whogoverns.me/static/css/main.f5576816.chunk.css"
+    "revision": "04fc1856913904093d50",
+    "url": "/whogoverns.me/static/css/main.30585e8a.chunk.css"
   },
   {
-    "revision": "d8b278a6f94f515c809d",
-    "url": "/whogoverns.me/static/js/main.91900e4c.chunk.js"
+    "revision": "04fc1856913904093d50",
+    "url": "/whogoverns.me/static/js/main.fa84f84e.chunk.js"
   },
   {
     "revision": "c47140b733974f4e0f5c",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/whogoverns.me/static/media/default-photo.447bb7f2.jpg"
   },
   {
-    "revision": "07dd60fde46d4f0d3c00f74ce7cb3ca1",
+    "revision": "6faabe36d08162af66d4a844ee65b640",
     "url": "/whogoverns.me/index.html"
   }
 ];

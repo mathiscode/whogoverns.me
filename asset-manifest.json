@@ -1,16 +1,16 @@
 {
-  "main.css": "/whogoverns.me/static/css/main.f5576816.chunk.css",
-  "main.js": "/whogoverns.me/static/js/main.91900e4c.chunk.js",
-  "main.js.map": "/whogoverns.me/static/js/main.91900e4c.chunk.js.map",
+  "main.css": "/whogoverns.me/static/css/main.30585e8a.chunk.css",
+  "main.js": "/whogoverns.me/static/js/main.fa84f84e.chunk.js",
+  "main.js.map": "/whogoverns.me/static/js/main.fa84f84e.chunk.js.map",
   "runtime~main.js": "/whogoverns.me/static/js/runtime~main.eddaa40d.js",
   "runtime~main.js.map": "/whogoverns.me/static/js/runtime~main.eddaa40d.js.map",
   "static/css/2.a09da3aa.chunk.css": "/whogoverns.me/static/css/2.a09da3aa.chunk.css",
   "static/js/2.552c987a.chunk.js": "/whogoverns.me/static/js/2.552c987a.chunk.js",
   "static/js/2.552c987a.chunk.js.map": "/whogoverns.me/static/js/2.552c987a.chunk.js.map",
   "index.html": "/whogoverns.me/index.html",
-  "precache-manifest.a6aee653e58fc6bf4d489a0664e38c94.js": "/whogoverns.me/precache-manifest.a6aee653e58fc6bf4d489a0664e38c94.js",
+  "precache-manifest.71ea9011d16464369138af3a5f8c23ca.js": "/whogoverns.me/precache-manifest.71ea9011d16464369138af3a5f8c23ca.js",
   "service-worker.js": "/whogoverns.me/service-worker.js",
   "static/css/2.a09da3aa.chunk.css.map": "/whogoverns.me/static/css/2.a09da3aa.chunk.css.map",
-  "static/css/main.f5576816.chunk.css.map": "/whogoverns.me/static/css/main.f5576816.chunk.css.map",
+  "static/css/main.30585e8a.chunk.css.map": "/whogoverns.me/static/css/main.30585e8a.chunk.css.map",
   "static/media/default-photo.jpg": "/whogoverns.me/static/media/default-photo.447bb7f2.jpg"
 }
