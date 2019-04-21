@@ -110,7 +110,7 @@ export default class OfficialCard extends Component {
 
             {
               official.emails && official.emails.length > 0 &&
-              <a title='Send Email' className='btn btn-link' href={`mailto://${official.emails[0]}`}>
+              <a title='Send Email' className='btn btn-link' href={`mailto:${official.emails[0]}`}>
                 <Icon icon='envelope' size='2x' />
               </a>
             }
