@@ -8,7 +8,7 @@ export default function Navbar(props) {
         <Icon icon='gavel' />
         <span className='icon-text'>Who Governs Me?</span>
       </button>
-      <ul className='navbar-nav ml-auto'>
+      <ul className='navbar-nav ml-auto animated slideInRight'>
         <li className='nav-item active'>
           <a className='nav-link btn btn-link' href='https://github.com/mathiscode/whogoverns.me' target='_blank' rel='noopener noreferrer'>
             Made with {<Icon icon='heart' color='#d00' />} by J.R. Mathis

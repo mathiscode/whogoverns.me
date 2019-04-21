@@ -157,6 +157,7 @@ export default class OfficialCard extends Component {
                     appUrl = `twitter://user?screen_name=${channel.id}`
                     break;
                   case 'YouTube':
+                    // Sometimes it's a channel ID instead. Not a quick way to determine channel/user without Youtube API. Avoiding for now.
                     icon = <Icon icon={['fab', 'youtube']} size='2x' />
                     url = `https://youtube.com/user/${channel.id}`
                     appUrl = url

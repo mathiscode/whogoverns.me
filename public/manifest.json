@@ -3,13 +3,23 @@
   "name": "WhoGoverns.me",
   "icons": [
     {
-      "src": "favicon.png",
-      "sizes": "64x64 32x32 24x24 16x16",
+        "src": "/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    },
+    {
+        "src": "/android-chrome-256x256.png",
+        "sizes": "256x256",
+        "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "start_url": "/index.html",
-  "display": "fullscreen",
-  "theme_color": "#000000",
+],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#343a40",
   "background_color": "#ffffff"
 }
