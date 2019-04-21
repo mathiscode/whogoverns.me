@@ -109,17 +109,24 @@ export default class OfficialCard extends Component {
             }
 
             {
-              official.address && official.address.length > 0 &&
-              <span title='View on Map' className='btn btn-link' onClick={() => this.mapAddress(official.address[0]) }>
-                <Icon icon='map-marker-alt' size='2x' />
-              </span>
+              official.emails && official.emails.length > 0 &&
+              <a title='Send Email' className='btn btn-link' href={`mailto://${official.emails[0]}`}>
+                <Icon icon='envelope' size='2x' />
+              </a>
             }
-            
+
             {
               official.phones && official.phones.length > 0 &&
                 <a title={`Call: ${official.phones[0]}`} className='btn btn-link' href={`tel://${official.phones[0]}`}>
                   <Icon icon='phone' size='2x' />
                 </a>
+            }
+
+            {
+              official.address && official.address.length > 0 &&
+              <span title='View on Map' className='btn btn-link' onClick={() => this.mapAddress(official.address[0]) }>
+                <Icon icon='map-marker-alt' size='2x' />
+              </span>
             }
 
             {

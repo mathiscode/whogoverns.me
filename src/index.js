@@ -13,13 +13,14 @@ import * as serviceWorker from './serviceWorker'
 
 // Setup FontAwesome Library
 import {
-  faAngleDoubleUp, faBars, faGavel, faHeart, faLink, faMapMarkerAlt, faPhone, faGlobeAmericas, faDemocrat, faRepublican, faVoteYea
+  faAngleDoubleUp, faBars, faEnvelope, faGavel, faHeart, faLink, faMapMarkerAlt, faPhone, faGlobeAmericas, faDemocrat, faRepublican, faVoteYea
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
   fab,
   faAngleDoubleUp,
   faBars,
+  faEnvelope,
   faGavel,
   faHeart,
   faLink,
