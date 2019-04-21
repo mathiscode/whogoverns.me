@@ -44,7 +44,8 @@ export default class OfficialCard extends Component {
     }
 
     let photoUrl = official.photoUrl
-    if (photoUrl && photoUrl.includes('http://')) photoUrl = `https://http-securifier.herokuapp.com/?url=${photoUrl}`
+    if (photoUrl && photoUrl.includes('http://')) photoUrl = photoUrl.replace('http://', 'https://')
+    let proxiedPhotoUrl = `https://http-securifier.herokuapp.com/?url=${photoUrl}`
 
     return (
       <div className='official-card card mb-4'>
@@ -52,7 +53,7 @@ export default class OfficialCard extends Component {
           <VisibilitySensor>
             <Img
               className='img-thumbnail official-profile-image float-left'
-              src={photoUrl ? [photoUrl, defaultPhoto] : defaultPhoto}
+              src={photoUrl ? [photoUrl, proxiedPhotoUrl, defaultPhoto] : defaultPhoto}
               loader={<Img className='img-thumbnail official-profile-image float-left' src={defaultPhoto} />}
             />
           </VisibilitySensor>
