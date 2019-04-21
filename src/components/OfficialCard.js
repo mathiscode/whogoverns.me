@@ -101,7 +101,7 @@ export default class OfficialCard extends Component {
         </div>
 
         <div className='card-footer'>
-          <div className='float-right'>
+          <div className='text-center'>
             {
               <a title='Search on Ballotpedia' className='btn btn-link' href={`https://ballotpedia.org/wiki/index.php?search=${searchName}`} target='_blank' rel='noopener noreferrer'>
                 <Icon icon='vote-yea' size='2x' />
