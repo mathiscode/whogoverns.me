@@ -1,5 +1,5 @@
 .navbar-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   font-variant: small-caps;
   text-shadow: #777 2px 2px;
@@ -29,7 +29,6 @@
 
       &:focus {
         border: 1px solid #333;
-        font-size: 50px;
       }
     }
   }
@@ -56,12 +55,8 @@
 
 .card-deck {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: .5rem;
-
-  @media only screen and (min-width: 992px) {
-    grid-template-columns: 1fr fit-content(1fr);
-  }
 }
 
 .official-card {

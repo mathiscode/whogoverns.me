@@ -164,7 +164,7 @@ class App extends Component {
                 </StickyBox>
               </div> */}
 
-              <div className='col-lg'>
+              <div className='col'>
                 {
                   this.state.representatives.divisions.map(division => {
                     if (!division.offices || division.offices.length === 0) return null
@@ -208,13 +208,14 @@ class App extends Component {
                   })
                 }
 
-                <div style={{ height: '500px' }} />{ /* Make scrolling to last section scroll properly */ }
+                {/* <div style={{ height: '500px' }} /> */ }
+                { /* Make scrolling to last section scroll properly */ }
               </div>
             </div>
           }
 
           {/* <pre>{JSON.stringify(this.state.representatives, null, 2)}</pre> */}
-          { !this.state.isLoading && <small><em>Data provided by <a href='https://developers.google.com/civic-information' target='_blank' rel='noopener noreferrer'>Google Civic Information</a></em></small> }
+          { !this.state.isLoading && <small className='float-right'><em>Data provided by <a href='https://developers.google.com/civic-information' target='_blank' rel='noopener noreferrer'>Google Civic Information</a></em></small> }
         </div>
       </>
     )

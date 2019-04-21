@@ -13,7 +13,7 @@ import * as serviceWorker from './serviceWorker'
 
 // Setup FontAwesome Library
 import {
-  faAngleDoubleUp, faBars, faGavel, faHeart, faPhone, faGlobeAmericas, faDemocrat, faRepublican
+  faAngleDoubleUp, faBars, faGavel, faHeart, faLink, faMapMarkerAlt, faPhone, faGlobeAmericas, faDemocrat, faRepublican, faVoteYea
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -22,10 +22,13 @@ library.add(
   faBars,
   faGavel,
   faHeart,
+  faLink,
+  faMapMarkerAlt,
   faPhone,
   faGlobeAmericas,
   faDemocrat,
-  faRepublican
+  faRepublican,
+  faVoteYea
 )
 
 ReactDOM.render(<App />, document.getElementById('root'))

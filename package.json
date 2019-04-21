@@ -1,5 +1,6 @@
 {
   "name": "whogoverns.me",
+  "homepage": "https://whogoverns.me",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +12,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-anchor-link-smooth-scroll": "^1.0.12",
@@ -23,13 +25,16 @@
     "react-sticky-box": "^0.8.0",
     "react-visibility-sensor": "^5.0.2",
     "styled-components": "^4.2.0",
-    "styled-spinkit": "^0.6.1"
+    "styled-spinkit": "^0.6.1",
+    "sw-precache": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

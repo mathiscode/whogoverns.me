@@ -10,7 +10,7 @@ export default function Navbar(props) {
       </button>
       <ul className='navbar-nav ml-auto'>
         <li className='nav-item active'>
-          <a className='nav-link btn btn-link' href='https://github.com/mathiscode' target='_blank' rel='noopener noreferrer'>
+          <a className='nav-link btn btn-link' href='https://github.com/mathiscode/whogoverns.me' target='_blank' rel='noopener noreferrer'>
             Made with {<Icon icon='heart' color='#d00' />} by J.R. Mathis
           </a>
         </li>

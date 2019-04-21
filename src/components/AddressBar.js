@@ -5,11 +5,14 @@ export default class AddressBar extends Component {
   state = { address: null }
 
   handleChange = address => {
+    address = address !== '' ? address : null
+    if (!address) localStorage.removeItem('address')
     this.setState({ address })
   }
 
   handleSelect = address => {
     this.setState({ address })
+    localStorage.setItem('address', address)
     
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
@@ -17,10 +20,14 @@ export default class AddressBar extends Component {
       .catch(error => console.error(error))
   }
 
+  componentDidMount () {
+    if(localStorage.getItem('address')) this.handleSelect(localStorage.getItem('address'))
+  }
+
   render() {
     return (
       <PlacesAutocomplete
-        value={this.state.address || ''}
+        value={this.state.address || localStorage.getItem('address') || ''}
         onChange={this.handleChange}
         onSelect={this.handleSelect}
         searchOptions={{
