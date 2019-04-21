@@ -1,7 +1,9 @@
 import axios from 'axios'
 
-const CIVIC_API_KEY = 'AIzaSyDjHqzqi8jfGkzQAtTlbEfZ1IC0xMcX7og'
-const GEOCODE_API_KEY = 'AIzaSyAjxi_5qrwbEHzNcWOP5X3kBnOGjlsZ5iM'
+import {
+  CIVIC_API_KEY,
+  GEOCODE_API_KEY
+} from '../config/keys.json'
 
 const CIVIC_API_ROOT = 'https://www.googleapis.com/civicinfo/v2'
 const GEOCODE_API_ROOT = 'https://maps.googleapis.com/maps/api/geocode/json'

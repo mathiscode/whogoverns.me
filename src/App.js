@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-// import classNames from 'classnames'
-// import StickyBox from 'react-sticky-box'
-// import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 import keys from './config/keys'
@@ -23,8 +20,8 @@ class App extends Component {
   }
 
   handleHashChange = () => {
-    console.log(window.location.hash)
-    this.setState({ divisionID: window.location.hash })
+    // console.log(window.location.hash)
+    // this.setState({ divisionID: window.location.hash })
   }
 
   componentDidMount = () => {
@@ -55,7 +52,7 @@ class App extends Component {
   }
 
   onChange = async (address, latLng) => {
-    console.log(address, latLng)
+    // console.log(address, latLng)
 
     try {
       this.setState({ isLoading: true, representatives: null })
@@ -79,29 +76,23 @@ class App extends Component {
   }
 
   anchorClick = e => {
-    const group = e.target.closest('.list-group')
-    const item = e.target.closest('.list-group-item')
-    const hash = item.getAttribute('href')
-    console.log(group, item, hash)
+    // const group = e.target.closest('.list-group')
+    // const item = e.target.closest('.list-group-item')
+    // const hash = item.getAttribute('href')
+    // console.log(group, item, hash)
     
-    group.querySelectorAll('.list-group-item').forEach(currentItem => currentItem.classList.remove('active'))
-    item.classList.add('active')
+    // group.querySelectorAll('.list-group-item').forEach(currentItem => currentItem.classList.remove('active'))
+    // item.classList.add('active')
 
-    if(window.history.pushState) {
-      window.history.pushState(null, null, hash);
-    } else {
-      window.location.hash = hash;
-    }
+    // if(window.history.pushState) {
+    //   window.history.pushState(null, null, hash);
+    // } else {
+    //   window.location.hash = hash;
+    // }
   }
 
   scrollToTop = () => {
     window.scrollTo(0, 0)
-
-    if(window.history.pushState) {
-      window.history.pushState(null, null, ' ');
-    } else {
-      window.location.hash = ' ';
-    }
   }
 
   render() {
