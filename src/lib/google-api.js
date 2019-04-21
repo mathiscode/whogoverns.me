@@ -51,7 +51,4 @@ API.voterInfo = async (options) => {
   })
 }
 
-
-// exports.GEOCODE_API_KEY = GEOCODE_API_KEY
-
 export default API
