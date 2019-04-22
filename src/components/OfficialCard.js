@@ -45,6 +45,10 @@ export default class OfficialCard extends Component {
 
     let photoUrl = official.photoUrl
     let proxiedPhotoUrl
+
+    // The White House has high-res images which are slow to load, replace the current ones
+    if (photoUrl === 'https://www.whitehouse.gov/sites/whitehouse.gov/files/images/45/PE%20Color.jpg') photoUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKx6EYhhB26AqqnnfUHX5B3HuLPilvjkKXzWR8-C8G29fOtoUN'
+    if (photoUrl === 'https://www.whitehouse.gov/sites/whitehouse.gov/files/images/45/VPE%20Color.jpg') photoUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Mike_Pence_official_Vice_Presidential_portrait.jpg/1200px-Mike_Pence_official_Vice_Presidential_portrait.jpg'
   
     // Proxy http images via https to prevent mixed content warnings
     // Some sites block the request, so we try https version of original url first, then proxy
@@ -55,6 +59,8 @@ export default class OfficialCard extends Component {
 
     // Images timeout on attempting https, so to speed things up for common domains we hack around the usual order
     if (photoUrl && photoUrl.includes('bioguide.congress.gov')) photoUrl = proxiedPhotoUrl
+
+    // console.log({ photoUrl, proxiedPhotoUrl })
 
     const photos = photoUrl ? [photoUrl] : defaultPhoto
     if (proxiedPhotoUrl) photos.push(proxiedPhotoUrl)
