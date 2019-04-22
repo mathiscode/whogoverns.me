@@ -44,8 +44,21 @@ export default class OfficialCard extends Component {
     }
 
     let photoUrl = official.photoUrl
-    if (photoUrl && photoUrl.includes('http://')) photoUrl = photoUrl.replace('http://', 'https://')
-    let proxiedPhotoUrl = `https://http-securifier.herokuapp.com/?url=${photoUrl}`
+    let proxiedPhotoUrl
+  
+    // Proxy http images via https to prevent mixed content warnings
+    // Some sites block the request, so we try https version of original url first, then proxy
+    if (photoUrl && photoUrl.includes('http://')) {
+      photoUrl = photoUrl.replace('http://', 'https://')
+      proxiedPhotoUrl = `https://http-securifier.herokuapp.com/?url=${official.photoUrl}`
+    }
+
+    // Images timeout on attempting https, so to speed things up for common domains we hack around the usual order
+    if (photoUrl && photoUrl.includes('bioguide.congress.gov')) photoUrl = proxiedPhotoUrl
+
+    const photos = photoUrl ? [photoUrl] : defaultPhoto
+    if (proxiedPhotoUrl) photos.push(proxiedPhotoUrl)
+    if (Array.isArray(photos)) photos.push(defaultPhoto)
 
     return (
       <div className='official-card card mb-4'>
@@ -53,7 +66,7 @@ export default class OfficialCard extends Component {
           <VisibilitySensor>
             <Img
               className='img-thumbnail official-profile-image float-left'
-              src={photoUrl ? [photoUrl, proxiedPhotoUrl, defaultPhoto] : defaultPhoto}
+              src={photos}
               loader={<Img className='img-thumbnail official-profile-image float-left' src={defaultPhoto} />}
             />
           </VisibilitySensor>
