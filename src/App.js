@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
-import keys from './config/keys'
+import keys from './config/keys.json'
 import Google from './lib/google-api'
 
 import Navbar from './components/Navbar'
@@ -96,11 +96,25 @@ class App extends Component {
   }
 
   render() {
+    keys.GOOGLE_ANALYTICS_TRACKING_ID = process.env.GOOGLE_ANALYTICS_TRACKING_ID || keys.GOOGLE_ANALYTICS_TRACKING_ID || ''
+
     return (
       <>
         <Helmet>
           <title>Who Governs Me?</title>
           <script src={MapsAPIUrl}></script>
+
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${keys.GOOGLE_ANALYTICS_TRACKING_ID}`}></script>
+          <script>
+            {
+              `window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${keys.GOOGLE_ANALYTICS_TRACKING_ID}');
+            `}
+          </script>
+
         </Helmet>
         
         <Navbar />
@@ -124,37 +138,6 @@ class App extends Component {
           {
             this.state.representatives &&
             <div className='row'>
-              { /* Done messing with navigation for now. Didn't want to resort to react-router. */ }
-              {/* <div className='col-lg-3'>
-                <StickyBox className='sidebar'>
-                  <div className='card mt-4'>
-                    <div className='list-group' onClick={this.anchorClick}>
-                      {
-                        this.state.representatives.divisions.map(division => {
-                          if (!division.offices || division.offices.length === 0) return
-
-                          return (
-                            <AnchorLink
-                              key={division.name}
-                              offset={70}
-                              href={`#${division.name.toLowerCase().replace(/%[0-9A-F]{2}/gi, '').replace(/\s/g, '_').replace(/'/g, '')}`}
-                              className={classNames(
-                                'list-group-item list-group-item-action',
-                                // {
-                                //   active: `#${division.name.toLowerCase().replace(/%[0-9A-F]{2}/gi, '').replace(/\s/g, '_')}` === this.state.divisionID
-                                // }
-                              )}
-                            >
-                                <span>{division.name !== 'United States' ? division.name : 'Federal'}</span>
-                            </AnchorLink>
-                          )
-                        })
-                      }
-                    </div>
-                  </div>
-                </StickyBox>
-              </div> */}
-
               <div className='col'>
                 {
                   this.state.representatives.divisions.map(division => {
@@ -198,9 +181,6 @@ class App extends Component {
                     )
                   })
                 }
-
-                {/* <div style={{ height: '500px' }} /> */ }
-                { /* Make scrolling to last section scroll properly */ }
               </div>
             </div>
           }

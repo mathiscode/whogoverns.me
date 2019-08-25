@@ -14,6 +14,7 @@ const API = {}
 
 const client = axios.create({})
 
+// Used during development
 // client.interceptors.request.use(request => {
 //   console.log('Starting Request', request)
 //   return request
