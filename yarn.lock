@@ -8691,6 +8691,11 @@ react-sticky-box@^0.8.0:
     prop-types "^15.6.2"
     resize-observer-polyfill "^1.5.1"
 
+react-tiny-fab@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-tiny-fab/-/react-tiny-fab-3.0.3.tgz#dd394d336f4fc6d0b29881452c6a288fff0c122c"
+  integrity sha512-Su0nnIyDB5s1VBYzGms/Sf352gncdHmgfYkpsq20BKAErmaC7a0xA4uWTM+PBOUA0hpJnSc0tN4EM+AocpiLcA==
+
 react-visibility-sensor@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/react-visibility-sensor/-/react-visibility-sensor-5.0.2.tgz#e360fff81572cb3a2a9fd680484447a9da09a55d"

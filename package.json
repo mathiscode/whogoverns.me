@@ -1,7 +1,7 @@
 {
   "name": "whogoverns.me",
   "homepage": "https://whogoverns.me",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
@@ -23,6 +23,7 @@
     "react-places-autocomplete": "^7.2.1",
     "react-scripts": "2.1.8",
     "react-sticky-box": "^0.8.0",
+    "react-tiny-fab": "^3.0.3",
     "react-visibility-sensor": "^5.0.2",
     "styled-components": "^4.2.0",
     "styled-spinkit": "^0.6.1",

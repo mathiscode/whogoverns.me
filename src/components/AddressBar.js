@@ -1,3 +1,5 @@
+/* global history */
+
 import React, { Component } from 'react'
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 
@@ -13,6 +15,11 @@ export default class AddressBar extends Component {
   handleSelect = address => {
     this.setState({ address })
     localStorage.setItem('address', address)
+
+    if (window.history.pushState) {
+      var path = window.location.origin + `?address=${address}`;
+      window.history.pushState({ path }, '', path);
+    }
     
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
@@ -21,7 +28,9 @@ export default class AddressBar extends Component {
   }
 
   componentDidMount () {
-    if(localStorage.getItem('address')) this.handleSelect(localStorage.getItem('address'))
+    const urlParams = new URLSearchParams(window.location.search)
+    if (urlParams.get('address')) return this.handleSelect(urlParams.get('address'))
+    if (localStorage.getItem('address')) return this.handleSelect(localStorage.getItem('address'))
   }
 
   render() {

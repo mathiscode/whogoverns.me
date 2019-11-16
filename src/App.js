@@ -1,6 +1,17 @@
+/*
+  App: WhoGoverns.me
+  Author: J.R. Mathis <https://github.com/mathiscode/whogoverns.me>
+  License: See LICENSE.md
+
+  Description:
+    This app pulls Google Civic data to assist citizens in contacting their representatives.
+*/
+
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
+import { Fab, Action } from 'react-tiny-fab'
+import 'react-tiny-fab/dist/styles.css'
 
 import keys from './config/keys.json'
 import Google from './lib/google-api'
@@ -19,21 +30,7 @@ class App extends Component {
     representatives: null
   }
 
-  handleHashChange = () => {
-    // console.log(window.location.hash)
-    // this.setState({ divisionID: window.location.hash })
-  }
-
   componentDidMount = () => {
-    window.addEventListener('hashchange', this.handleHashChange)
-    window.addEventListener('scroll', e => {
-      // if (window.scrollY > 107) document.querySelector('.sidebar').style.top = '100px'
-      // const wrapper = document.querySelector('.search-results-wrapper')
-      // const group = wrapper.closest('.list-group')
-      // const hash = wrapper.getAttribute('id')
-      // console.log(window.scrollY, { wrapper, group, hash })
-    })
-
     let interval;
     const checkGMapsLoaded = () => {
       if (window.google) {
@@ -70,25 +67,11 @@ class App extends Component {
 
       document.querySelector('.address-search-container').classList.add('done')
       document.querySelector('.location-search-input').blur()
+
+      document.title = `Who Governs Me? • ${address}`
     } catch (e) {
       console.error(e)
     }
-  }
-
-  anchorClick = e => {
-    // const group = e.target.closest('.list-group')
-    // const item = e.target.closest('.list-group-item')
-    // const hash = item.getAttribute('href')
-    // console.log(group, item, hash)
-    
-    // group.querySelectorAll('.list-group-item').forEach(currentItem => currentItem.classList.remove('active'))
-    // item.classList.add('active')
-
-    // if(window.history.pushState) {
-    //   window.history.pushState(null, null, hash);
-    // } else {
-    //   window.location.hash = hash;
-    // }
   }
 
   scrollToTop = () => {
@@ -98,10 +81,13 @@ class App extends Component {
   render() {
     keys.GOOGLE_ANALYTICS_TRACKING_ID = process.env.GOOGLE_ANALYTICS_TRACKING_ID || keys.GOOGLE_ANALYTICS_TRACKING_ID || ''
 
+    const actionStyle = {
+      backgroundColor: '#2222aa'
+    }
+
     return (
       <>
         <Helmet>
-          <title>Who Governs Me?</title>
           <script src={MapsAPIUrl}></script>
 
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${keys.GOOGLE_ANALYTICS_TRACKING_ID}`}></script>
@@ -143,16 +129,18 @@ class App extends Component {
                   this.state.representatives.divisions.map(division => {
                     if (!division.offices || division.offices.length === 0) return null
 
+                    let safeDivisionName = division.name.replace(/([' | ])+/g, '_')
+
                     return (
-                      <section key={division.name} id={division.name.toLowerCase().replace(/%[0-9A-F]{2}/gi, '').replace(/\s/g, '_').replace(/'/g, '')}>
+                      <section key={division.name} id={'SECTION_' + safeDivisionName}>
                         <div className='card mt-4'>
                           <div className='card-header bg-dark text-white'>
                             <h3>
                               {division.name !== 'United States' ? division.name : 'Federal'}
-                              <span title='Go to Top' className='float-right' style={{ cursor: 'pointer' }} onClick={this.scrollToTop}><Icon icon='angle-double-up' /></span>
                             </h3>
                           </div>
-                          <div className='card-body'>
+                          
+                          <div id={safeDivisionName} className='card-body collapse show'>
                             <div className='card-deck'>
                               {
                                 division.offices && division.offices.map(officeIndex => {
@@ -188,6 +176,26 @@ class App extends Component {
           {/* <pre>{JSON.stringify(this.state.representatives, null, 2)}</pre> */}
           { !this.state.isLoading && <small className='float-right'><em>Data provided by <a href='https://developers.google.com/civic-information' target='_blank' rel='noopener noreferrer'>Google Civic Information</a></em></small> }
         </div>
+
+        <Fab
+          icon={<Icon icon='bars' />}
+          mainButtonStyles={{ backgroundColor: '#aa0000' }}
+          children={
+            [
+              <Action text='Search' style={actionStyle}
+                onClick={() => {
+                  this.scrollToTop()
+                  document.querySelector('.location-search-input').focus()
+                }}
+              >
+                <Icon icon='search' />
+              </Action>,
+
+              <Action text='Register to Vote' style={actionStyle} onClick={() => window.open('https://www.vote.org/register-to-vote/', '_blank')}><Icon icon='vote-yea' /></Action>,
+              <Action text='Buy me a beer' style={actionStyle} onClick={() => window.open('https://beerpay.io/mathiscode/whogoverns.me', '_blank')}><Icon icon='beer' /></Action>
+            ]
+          }
+        />
       </>
     )
   }
