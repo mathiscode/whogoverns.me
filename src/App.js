@@ -146,7 +146,8 @@ class App extends Component {
                         <div className='card mt-4'>
                           <div className='card-header bg-dark text-white'>
                             <h3>
-                              {division.name !== 'United States' ? division.name : 'Federal'}
+                              <Icon icon='landmark' />
+                              <span style={{ marginLeft: '20px' }}>{division.name !== 'United States' ? division.name : 'Federal'}</span>
                             </h3>
                           </div>
                           
@@ -188,6 +189,7 @@ class App extends Component {
         </div>
 
         <Fab
+          event='click'
           icon={<Icon icon='bars' />}
           mainButtonStyles={{ backgroundColor: '#aa0000' }}
           children={

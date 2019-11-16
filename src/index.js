@@ -27,7 +27,9 @@ import {
   faVoteYea, 
   faWindowMinimize, 
   faBeer, 
-  faSearch
+  faSearch,
+  faLandmark,
+  faCity
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -46,7 +48,9 @@ library.add(
   faVoteYea,
   faWindowMinimize,
   faBeer,
-  faSearch
+  faSearch,
+  faLandmark,
+  faCity
 )
 
 ReactDOM.render(<App />, document.getElementById('root'))
