@@ -90,17 +90,27 @@ class App extends Component {
         <Helmet>
           <script src={MapsAPIUrl}></script>
 
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${keys.GOOGLE_ANALYTICS_TRACKING_ID}`}></script>
-          <script>
-            {
-              `window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
+          {
+            keys.ADSENSE_DATA_AD_CLIENT &&
+            <script data-ad-client={keys.ADSENSE_DATA_AD_CLIENT} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          }
 
-              gtag('config', '${keys.GOOGLE_ANALYTICS_TRACKING_ID}');
-            `}
-          </script>
+          {
+            keys.GOOGLE_ANALYTICS_TRACKING_ID &&
+              <script async src={`https://www.googletagmanager.com/gtag/js?id=${keys.GOOGLE_ANALYTICS_TRACKING_ID}`}></script>
+          }
 
+          {
+            keys.GOOGLE_ANALYTICS_TRACKING_ID &&
+            <script>
+              {
+                `window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${keys.GOOGLE_ANALYTICS_TRACKING_ID}');
+              `}
+            </script>
+          }
         </Helmet>
         
         <Navbar />
