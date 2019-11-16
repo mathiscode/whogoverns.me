@@ -91,11 +91,6 @@ class App extends Component {
           <script src={MapsAPIUrl}></script>
 
           {
-            keys.ADSENSE_DATA_AD_CLIENT &&
-            <script data-ad-client={keys.ADSENSE_DATA_AD_CLIENT} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          }
-
-          {
             keys.GOOGLE_ANALYTICS_TRACKING_ID &&
               <script async src={`https://www.googletagmanager.com/gtag/js?id=${keys.GOOGLE_ANALYTICS_TRACKING_ID}`}></script>
           }
