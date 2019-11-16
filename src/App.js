@@ -185,8 +185,14 @@ class App extends Component {
           }
 
           {/* <pre>{JSON.stringify(this.state.representatives, null, 2)}</pre> */}
-          { !this.state.isLoading && <small className='float-right'><em>Data provided by <a href='https://developers.google.com/civic-information' target='_blank' rel='noopener noreferrer'>Google Civic Information</a></em></small> }
         </div>
+
+        <footer className='footer mt-auto py-3'>
+          <div className='container'>
+            <a href='https://github.com/mathiscode/whogoverns.me' target='_blank' rel='noopener noreferrer'>Made with <Icon icon='heart' color='#d00' /> by J.R. Mathis</a>
+            <small className='float-right'><em>Data provided by <a href='https://developers.google.com/civic-information' target='_blank' rel='noopener noreferrer'>Google Civic Information</a></em></small>
+          </div>
+        </footer>
 
         <Fab
           alwaysShowTitle={true}

@@ -17,7 +17,7 @@
 }
 
 .address-search-container {
-  padding-top: 200px;
+  padding-top: 10%;
   transition: padding-top 1s;
 
   &.done {
@@ -80,5 +80,26 @@
 
   address {
     font-size: 0.75rem;
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 20px;
+  background-color: #212529;
+
+  .container {
+    color: #ccc;
+
+    a {
+      color: #ccc;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
