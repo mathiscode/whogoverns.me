@@ -189,6 +189,7 @@ class App extends Component {
         </div>
 
         <Fab
+          alwaysShowTitle={true}
           event='click'
           icon={<Icon icon='bars' />}
           mainButtonStyles={{ backgroundColor: '#aa0000' }}
