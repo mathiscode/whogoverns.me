@@ -55,6 +55,7 @@ export default class AddressBar extends Component {
                 className: 'location-search-input',
               })}
             />
+            <p className="text-muted text-right"><em>Or, just your City and State if you prefer.</em></p>
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
               {suggestions.map(suggestion => {

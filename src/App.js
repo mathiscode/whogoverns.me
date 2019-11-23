@@ -46,6 +46,17 @@ class App extends Component {
     }
 
     interval = setInterval(checkGMapsLoaded, 100)
+
+    fetch('https://json.geoiplookup.io')
+      .then(res => res.json())
+      .then(data => {
+        if (data.country_code !== 'US') {
+          window.alert('Please note that this app only provides data for the United States')
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   onChange = async (address, latLng) => {
