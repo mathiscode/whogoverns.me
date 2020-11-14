@@ -48,5 +48,8 @@
   ],
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.0"
+  },
+  "resolutions": {
+    "union-value": "2.0.1"
   }
 }
