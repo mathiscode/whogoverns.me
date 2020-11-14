@@ -67,7 +67,7 @@ export default class AddressBar extends Component {
                   ? { backgroundColor: '#ddd', cursor: 'pointer', borderRadius: '4px', padding: '2px' }
                   : { backgroundColor: '#ffffff', cursor: 'pointer' };
                 return (
-                  <div
+                  <div key={Math.random().toString(36)}
                     {...getSuggestionItemProps(suggestion, {
                       className,
                       style,

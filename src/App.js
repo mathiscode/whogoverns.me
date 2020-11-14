@@ -59,6 +59,12 @@ class App extends Component {
       })
   }
 
+  // componentDidUpdate = () => {
+  //   // Animate the FAB
+  //   const fab = document.querySelector('.rtf.closed .rtf--mb')
+  //   fab.classList.add('animate__animated', 'animate__infinite', 'animate__slower', 'animate__bounce')
+  // }
+
   onChange = async (address, latLng) => {
     // console.log(address, latLng)
 
@@ -70,6 +76,10 @@ class App extends Component {
       Object.values(results.data.divisions).forEach(division => {
         divisions.push({ name: division.name, offices: division.officeIndices })
       })
+
+      const usa = divisions.find(div => div.name === 'United States')
+      divisions = divisions.filter(div => div.name !== 'United States')
+      divisions.unshift(usa)
 
       this.setState({
         isLoading: false,
@@ -122,17 +132,20 @@ class App extends Component {
         <Navbar />
 
         <div className='container address-search-container'>
+          { !this.state.showAddressBar && <LoadingSpinner size={64} /> }
           {
             this.state.showAddressBar &&
-            <>
-              <AddressBar 
-                onChange={this.onChange}
-              />
-            </>
+              <div className='animate__animated animate__fadeInDownBig'>
+                <AddressBar 
+                  onChange={this.onChange}
+                />
+              </div>
           }
         </div>
         
         <div className='container search-results-wrapper'>
+          <h3 className="quote animate__animated animate__backInUp">"It's not the voting that's democracy; it's the counting." <small>&mdash; Tom Stoppard</small></h3>
+
           {
             this.state.isLoading && <LoadingSpinner />
           }
@@ -193,14 +206,26 @@ class App extends Component {
           {/* <pre>{JSON.stringify(this.state.representatives, null, 2)}</pre> */}
         </div>
 
-        <footer className='footer mt-auto py-3'>
+        <footer className='footer mt-auto py-3 animate__animated animate__slideInUp'>
           <div className='container'>
-            <a href='https://github.com/mathiscode/whogoverns.me' target='_blank' rel='noopener noreferrer'>Made with <Icon icon='heart' color='#d00' /> by J.R. Mathis</a>
+            <a href='https://github.com/sponsors/mathiscode' target='_blank' rel='noopener noreferrer'>Made with <Icon icon='heart' color='#d00' /> by Jay Mathis</a>
             <small className='float-right'><em>Data provided by <a href='https://developers.google.com/civic-information' target='_blank' rel='noopener noreferrer'>Google Civic Information</a></em></small>
           </div>
         </footer>
 
         <Fab
+          className='rtf closed animate__animated animate__infinite animate__slower animate__bounce'
+          onClick={e => {
+            const container = document.querySelector('ul.rtf')
+
+            if (Array.from(container.classList).includes('closed')) {
+              container.classList.remove('closed')
+              container.classList.add('open')
+            } else {
+              container.classList.remove('open')
+              container.classList.add('closed')
+            }
+          }}
           alwaysShowTitle={true}
           event='click'
           icon={<Icon icon='bars' />}
@@ -217,7 +242,7 @@ class App extends Component {
               </Action>,
 
               <Action text='Register to Vote' style={actionStyle} onClick={() => window.open('https://www.vote.org/register-to-vote/', '_blank')}><Icon icon='vote-yea' /></Action>,
-              <Action text='Buy me a beer' style={actionStyle} onClick={() => window.open('https://beerpay.io/mathiscode/whogoverns.me', '_blank')}><Icon icon='beer' /></Action>
+              <Action text='Buy me a beer' style={actionStyle} onClick={() => window.open('https://github.com/sponsors/mathiscode', '_blank')}><Icon icon='beer' /></Action>
             ]
           }
         />

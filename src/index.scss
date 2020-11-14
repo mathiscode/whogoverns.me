@@ -1,3 +1,5 @@
+@import "~animate.css/animate.min.css";
+
 .navbar-title {
   font-size: 1.2rem;
   font-weight: bold;
@@ -45,12 +47,23 @@
   }
 }
 
+.quote {
+  text-align: center;
+  color: #444;
+  font-style: italic;
+  margin: 2rem;
+}
+
 .icon-text {
   margin-left: 10px;
 }
 
 .icon-text-left {
   margin-right: 10px;
+}
+
+.search-results-wrapper {
+  margin-bottom: 15rem;
 }
 
 .card-deck {
@@ -102,4 +115,10 @@
       }
     }
   }
+}
+
+button.rtf--mb {
+  @extend .animate__animated !optional;
+  @extend .animate__infinite !optional;
+  @extend .animate__heartBeat !optional;
 }
