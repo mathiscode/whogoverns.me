@@ -209,7 +209,7 @@ class App extends Component {
 
         <footer className='footer mt-auto py-3 animate__animated animate__slideInUp'>
           <div className='container'>
-            <a href='https://github.com/sponsors/mathiscode' target='_blank' rel='noopener noreferrer'>Made with <Icon icon='heart' color='#d00' /> by Jay Mathis</a>
+            <a href='https://github.com/sponsors/mathiscode' target='_blank' rel='noopener noreferrer'>Made with <Icon icon='heart' color='#d00' /> by <span style={{ textDecoration: 'underline' }}>Jay R. Mathis</span></a>
             <small className='float-right'><em>Data provided by <a href='https://developers.google.com/civic-information' target='_blank' rel='noopener noreferrer'>Google Civic Information</a></em></small>
           </div>
         </footer>
