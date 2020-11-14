@@ -132,6 +132,7 @@ class App extends Component {
         <Navbar />
 
         <div className='container address-search-container'>
+          <h1 className='address-bar-title'>Research the people you're supposed to trust:</h1>
           { !this.state.showAddressBar && <LoadingSpinner size={64} /> }
           {
             this.state.showAddressBar &&
@@ -144,7 +145,7 @@ class App extends Component {
         </div>
         
         <div className='container search-results-wrapper'>
-          <h3 className="quote animate__animated animate__backInUp">"It's not the voting that's democracy; it's the counting." <small>&mdash; Tom Stoppard</small></h3>
+          <h3 className="quote animate__animated animate__backInUp animate__delay-1s">"It's not the voting that's democracy; it's the counting." <small>&mdash; Tom Stoppard</small></h3>
 
           {
             this.state.isLoading && <LoadingSpinner />

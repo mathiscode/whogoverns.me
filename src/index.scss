@@ -18,6 +18,15 @@
   outline-style:none;
 }
 
+.address-bar-title {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.5rem;
+  }
+}
+
 .address-search-container {
   padding-top: 10%;
   transition: padding-top 1s;
@@ -115,10 +124,4 @@
       }
     }
   }
-}
-
-button.rtf--mb {
-  @extend .animate__animated !optional;
-  @extend .animate__infinite !optional;
-  @extend .animate__heartBeat !optional;
 }

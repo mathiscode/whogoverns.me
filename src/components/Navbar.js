@@ -11,14 +11,14 @@ export default function Navbar(props) {
   const urlParams = new URLSearchParams(window.location.search)
 
   return (
-    <nav id='navbar' className='navbar sticky-top navbar-expand-lg navbar-dark bg-dark'>
-      <button className='navbar-brand navbar-title btn btn-link animated slideInLeft'>
+    <nav id='navbar' className='navbar sticky-top navbar-expand-lg navbar-dark bg-dark animate__animated animate__slideInDown'>
+      <button className='navbar-brand navbar-title btn btn-link animate__animated animate__slideInLeft'>
         <Icon icon='gavel' />
         <span className='icon-text'>Who Governs Me?</span>
       </button>
 
       <div id="navbarMenu" className='collapse navbar-collapse'>
-        <ul className='navbar-nav ml-auto animated slideInRight'>
+        <ul className='navbar-nav ml-auto animate__animated animate__slideInRight'>
 
           {
             topCities.map(city => {
