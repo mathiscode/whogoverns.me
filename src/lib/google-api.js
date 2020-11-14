@@ -1,9 +1,7 @@
 import axios from 'axios'
 
-import {
-  CIVIC_API_KEY,
-  GEOCODE_API_KEY
-} from '../config/keys.json'
+const CIVIC_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
+const GEOCODE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY
 
 const CIVIC_API_ROOT = 'https://www.googleapis.com/civicinfo/v2'
 const GEOCODE_API_ROOT = 'https://maps.googleapis.com/maps/api/geocode/json'

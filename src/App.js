@@ -13,7 +13,6 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { Fab, Action } from 'react-tiny-fab'
 import 'react-tiny-fab/dist/styles.css'
 
-import keys from './config/keys.json'
 import Google from './lib/google-api'
 
 import Navbar from './components/Navbar'
@@ -21,7 +20,7 @@ import LoadingSpinner from './components/LoadingSpinner'
 import AddressBar from './components/AddressBar'
 import OfficialCard from './components/OfficialCard'
 
-const MapsAPIUrl = `https://maps.googleapis.com/maps/api/js?key=${keys.PLACES_API_KEY}&libraries=places`
+const MapsAPIUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`
 
 class App extends Component {
   state = {
@@ -100,8 +99,6 @@ class App extends Component {
   }
 
   render() {
-    keys.GOOGLE_ANALYTICS_TRACKING_ID = process.env.GOOGLE_ANALYTICS_TRACKING_ID || keys.GOOGLE_ANALYTICS_TRACKING_ID || ''
-
     const actionStyle = {
       backgroundColor: '#2222aa'
     }
@@ -112,18 +109,18 @@ class App extends Component {
           <script src={MapsAPIUrl}></script>
 
           {
-            keys.GOOGLE_ANALYTICS_TRACKING_ID &&
-              <script async src={`https://www.googletagmanager.com/gtag/js?id=${keys.GOOGLE_ANALYTICS_TRACKING_ID}`}></script>
+            process.env.REACT_APP_GOOGLE_ANALYTICS_ID &&
+              <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}`}></script>
           }
 
           {
-            keys.GOOGLE_ANALYTICS_TRACKING_ID &&
+            process.env.REACT_APP_GOOGLE_ANALYTICS_ID &&
             <script>
               {
                 `window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${keys.GOOGLE_ANALYTICS_TRACKING_ID}');
+                gtag('config', '${process.env.REACT_APP_GOOGLE_ANALYTICS_ID}');
               `}
             </script>
           }
