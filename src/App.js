@@ -1,6 +1,6 @@
 /*
   App: WhoGoverns.me
-  Author: J.R. Mathis <https://github.com/mathiscode/whogoverns.me>
+  Author: Jay Mathis <https://github.com/mathiscode/whogoverns.me>
   License: See LICENSE.md
 
   Description:
@@ -56,13 +56,16 @@ class App extends Component {
       .catch(err => {
         console.log(err)
       })
+
+    setInterval(this.checkFABState, 200)
   }
 
-  // componentDidUpdate = () => {
-  //   // Animate the FAB
-  //   const fab = document.querySelector('.rtf.closed .rtf--mb')
-  //   fab.classList.add('animate__animated', 'animate__infinite', 'animate__slower', 'animate__bounce')
-  // }
+  checkFABState = () => {
+    // Stop animating the FAB if active
+    const openFAB = document.querySelector('.rtf')
+    if (openFAB.classList.contains('open')) document.querySelector('.rtf--mb').classList.remove('animate__animated', 'animate__infinite', 'animate__slower', 'animate__bounce')
+    if (openFAB.classList.contains('closed')) document.querySelector('.rtf--mb').classList.add('animate__animated', 'animate__infinite', 'animate__slower', 'animate__bounce')
+  }
 
   onChange = async (address, latLng) => {
     // console.log(address, latLng)
@@ -211,18 +214,18 @@ class App extends Component {
         </footer>
 
         <Fab
-          className='rtf closed animate__animated animate__infinite animate__slower animate__bounce'
-          onClick={e => {
-            const container = document.querySelector('ul.rtf')
+          // className='rtf closed animate__animated animate__infinite animate__slower animate__bounce'
+          // onClick={e => {
+          //   const container = document.querySelector('ul.rtf')
 
-            if (Array.from(container.classList).includes('closed')) {
-              container.classList.remove('closed')
-              container.classList.add('open')
-            } else {
-              container.classList.remove('open')
-              container.classList.add('closed')
-            }
-          }}
+          //   if (Array.from(container.classList).includes('closed')) {
+          //     container.classList.remove('closed')
+          //     container.classList.add('open')
+          //   } else {
+          //     container.classList.remove('open')
+          //     container.classList.add('closed')
+          //   }
+          // }}
           alwaysShowTitle={true}
           event='click'
           icon={<Icon icon='bars' />}
