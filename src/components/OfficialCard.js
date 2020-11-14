@@ -7,7 +7,7 @@ import defaultPhoto from '../assets/images/default-photo.jpg'
 
 export default class OfficialCard extends Component {
   mapAddress = (address) => {
-    const formattedAddress = `${address.line1} ${address.line2} ${address.line3} ${address.city} ${address.state} ${address.zip}`
+    const formattedAddress = `${address.line1 || ''} ${address.line2 || ''} ${address.line3 || ''} ${address.city || ''} ${address.state || ''} ${address.zip || ''}`
     const encodedAddress = encodeURIComponent(formattedAddress)
     const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`
 
