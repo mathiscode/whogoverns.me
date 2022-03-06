@@ -209,24 +209,12 @@ class App extends Component {
 
         <footer className='footer mt-auto py-3 animate__animated animate__slideInUp'>
           <div className='container'>
-            <a href='https://github.com/sponsors/mathiscode' target='_blank' rel='noopener noreferrer'>Made with <Icon icon='heart' color='#d00' /> by <span style={{ textDecoration: 'underline' }}>Jay R. Mathis</span></a>
+            <a href='https://github.com/sponsors/mathiscode' target='_blank' rel='noopener noreferrer'>Made with <Icon icon='heart' color='#d00' /> by <span style={{ textDecoration: 'underline' }}>Jay Mathis</span></a>
             <small className='float-right'><em>Data provided by <a href='https://developers.google.com/civic-information' target='_blank' rel='noopener noreferrer'>Google Civic Information</a></em></small>
           </div>
         </footer>
 
         <Fab
-          // className='rtf closed animate__animated animate__infinite animate__slower animate__bounce'
-          // onClick={e => {
-          //   const container = document.querySelector('ul.rtf')
-
-          //   if (Array.from(container.classList).includes('closed')) {
-          //     container.classList.remove('closed')
-          //     container.classList.add('open')
-          //   } else {
-          //     container.classList.remove('open')
-          //     container.classList.add('closed')
-          //   }
-          // }}
           alwaysShowTitle={true}
           event='click'
           icon={<Icon icon='bars' />}
