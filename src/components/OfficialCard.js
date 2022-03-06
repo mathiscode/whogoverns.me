@@ -46,13 +46,10 @@ export default class OfficialCard extends Component {
     let photoUrl = official.photoUrl
     let proxiedPhotoUrl
 
-    console.log({ official, photoUrl })
-
     // Fix known missing images
-    if (!photoUrl) {
-      if (official.name === 'Joseph R. Biden') photoUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Joe_Biden_presidential_portrait.jpg/384px-Joe_Biden_presidential_portrait.jpg?download'
-      if (official.name === 'Kamala D. Harris') photoUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Kamala_Harris_Vice_Presidential_Portrait.jpg/384px-Kamala_Harris_Vice_Presidential_Portrait.jpg'
-    }
+    if (official.name === 'Joseph R. Biden') photoUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Joe_Biden_presidential_portrait.jpg/384px-Joe_Biden_presidential_portrait.jpg?download'
+    if (official.name === 'Kamala D. Harris') photoUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Kamala_Harris_Vice_Presidential_Portrait.jpg/384px-Kamala_Harris_Vice_Presidential_Portrait.jpg'
+    if (official.name === 'Greg Abbott') photoUrl = 'https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/GregAbbott2015.jpg'
   
     // Proxy http images via https to prevent mixed content warnings
     // Some sites block the request, so we try https version of original url first, then proxy
