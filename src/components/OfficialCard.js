@@ -46,10 +46,13 @@ export default class OfficialCard extends Component {
     let photoUrl = official.photoUrl
     let proxiedPhotoUrl
 
-    // The White House has high-res images which are slow to load, replace the current ones
-    // Yes, this is crazy hacky. It's going to require manual update when the administration changes, but it's better for UX.
-    if (photoUrl === 'https://www.whitehouse.gov/sites/whitehouse.gov/files/images/45/PE%20Color.jpg') photoUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKx6EYhhB26AqqnnfUHX5B3HuLPilvjkKXzWR8-C8G29fOtoUN'
-    if (photoUrl === 'https://www.whitehouse.gov/sites/whitehouse.gov/files/images/45/VPE%20Color.jpg') photoUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Mike_Pence_official_Vice_Presidential_portrait.jpg/1200px-Mike_Pence_official_Vice_Presidential_portrait.jpg'
+    console.log({ official, photoUrl })
+
+    // Fix known missing images
+    if (!photoUrl) {
+      if (official.name === 'Joseph R. Biden') photoUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Joe_Biden_presidential_portrait.jpg/384px-Joe_Biden_presidential_portrait.jpg?download'
+      if (official.name === 'Kamala D. Harris') photoUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Kamala_Harris_Vice_Presidential_Portrait.jpg/384px-Kamala_Harris_Vice_Presidential_Portrait.jpg'
+    }
   
     // Proxy http images via https to prevent mixed content warnings
     // Some sites block the request, so we try https version of original url first, then proxy
