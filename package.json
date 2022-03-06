@@ -1,8 +1,28 @@
 {
   "name": "whogoverns.me",
   "homepage": "https://whogoverns.me",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "resolutions": {
+    "union-value": "2.0.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-brands-svg-icons": "^5.8.1",
@@ -13,7 +33,7 @@
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "gh-pages": "^2.0.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.0.0",
     "react": "^16.8.6",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^16.8.6",
@@ -29,27 +49,7 @@
     "styled-spinkit": "^0.6.1",
     "sw-precache": "^5.2.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.0"
-  },
-  "resolutions": {
-    "union-value": "2.0.1"
   }
 }
