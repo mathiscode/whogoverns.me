@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+  color: #0f172a;
+  background: radial-gradient(1200px 800px at 10% -10%, #f8fafc 40%, #eef2ff 100%) fixed,
+              linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) fixed;
+}
+
+a {
+  color: #0f172a;
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+
+a:hover {
+  color: #1e293b;
+  text-decoration: underline;
+}
+
+.retired-page {
+  height: 100vh;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  padding: 24px;
+}
+
+.retired-card {
+  width: 100%;
+  max-width: 720px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08), 0 2px 8px rgba(2, 6, 23, 0.06);
+  padding: 32px;
+  text-align: center;
+}
+
+.retired-title {
+  margin: 0 0 12px;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0b1220;
+}
+
+.retired-lede {
+  margin: 0 0 12px;
+  font-size: 1.125rem;
+  color: #334155;
+}
+
+.retired-body {
+  margin: 0 0 20px;
+  color: #475569;
+}
+
+.retired-link {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #111827;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.18), 0 2px 6px rgba(17, 24, 39, 0.12);
+}
+
+.retired-link:hover {
+  color: #fff;
+  background: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.18), 0 4px 10px rgba(17, 24, 39, 0.12);
+  text-decoration: none;
+}
+
+.retired-footer {
+  width: 100%;
+  max-width: 720px;
+  text-align: center;
+  padding: 16px 0;
+  color: #6b7280;
+}
+
+@media (max-width: 640px) {
+  .retired-card {
+    padding: 24px;
+  }
+
+  .retired-title {
+    font-size: 1.6rem;
+  }
+}
+
+
